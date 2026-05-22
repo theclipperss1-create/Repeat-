@@ -1,0 +1,14 @@
+# gcloudignore for Cloud Build
+# Do NOT ignore the 'out' directory since it is needed to build the Docker image.
+
+.git
+.gitignore
+node_modules/
+.next/
+.firebase/
+.antigravitycli/
+.firebaserc
+firebase.json
+deploy-gcp.ps1
+gcloud-logs/
+*.log
