@@ -1,5 +1,5 @@
 export const SOUNDS = [
-  { id: 'default', name: 'Default', file: null },
+  { id: 'default', name: 'Default', frequencies: [523.25, 659.25, 783.99], type: 'sine', duration: 0.8 },
   { id: 'gentle', name: 'Gentle Chime', frequencies: [523.25, 1046.5, 1567.98], type: 'sine', duration: 0.8 },
   { id: 'alert', name: 'Soft Alert', frequencies: [659.25, 880.00, 1046.50], type: 'triangle', duration: 0.5 },
   { id: 'bell', name: 'Crystal Bell', frequencies: [880.00, 1760.00, 2200.00], type: 'sine', duration: 1.2 },
@@ -24,6 +24,9 @@ export function playSound(soundId) {
   }
 
   const ctx = getAudioContext();
+  if (ctx.state === 'suspended') {
+    ctx.resume().catch((err) => console.warn('AudioContext resume failed:', err));
+  }
   const masterGain = ctx.createGain();
 
   // Elevate volume for a louder, clearer sound (max gain 0.8)

@@ -176,7 +176,7 @@ export function AddReminderModal({ isOpen, onClose, initialData = null }) {
                           whileTap={{ scale: 0.95 }}
                           onClick={() => {
                             setSound(s.id);
-                            if (s.frequency) previewSound(s.id);
+                            if (s.frequencies) previewSound(s.id);
                           }}
                           className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-[14px] font-medium transition-colors border ${
                             selected
